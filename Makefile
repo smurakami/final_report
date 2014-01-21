@@ -1,4 +1,4 @@
-DOCUMENT = murakami_mid_report
+DOCUMENT = murakami_final_report
 TEX = $(DOCUMENT).tex
 DVI = $(DOCUMENT).dvi
 LOG = $(DOCUMENT).log
