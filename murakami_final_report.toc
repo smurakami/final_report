@@ -1,27 +1,29 @@
 \contentsline {section}{\numberline {1}序論}{1}
 \contentsline {subsection}{\numberline {1.1}背景}{1}
-\contentsline {subsection}{\numberline {1.2}目的}{1}
-\contentsline {section}{\numberline {2}手法}{2}
-\contentsline {subsection}{\numberline {2.1}基本方針}{3}
+\contentsline {subsection}{\numberline {1.2}目的}{2}
+\contentsline {section}{\numberline {2}手法}{3}
+\contentsline {subsection}{\numberline {2.1}記事と関連するニュース記事の収集}{3}
 \contentsline {subsection}{\numberline {2.2}内容語の抽出}{4}
-\contentsline {subsection}{\numberline {2.3}言い換えの関係の語の検出}{4}
-\contentsline {subsection}{\numberline {2.4}互いに類似する語の検出}{5}
-\contentsline {subsubsection}{\numberline {2.4.1}Dekang Linの手法の利用}{5}
-\contentsline {subsubsection}{\numberline {2.4.2}Latent Spaceでのモデル化}{6}
-\contentsline {subsection}{\numberline {2.5}アラインメント}{7}
-\contentsline {subsection}{\numberline {2.6}形態素解析}{7}
-\contentsline {section}{\numberline {3}実験}{8}
-\contentsline {subsection}{\numberline {3.1}実験概要}{8}
-\contentsline {subsection}{\numberline {3.2}実験条件}{8}
-\contentsline {subsection}{\numberline {3.3}実験結果}{9}
-\contentsline {subsubsection}{\numberline {3.3.1}内容語の抽出}{9}
+\contentsline {subsubsection}{\numberline {2.2.1}tf-idf}{4}
+\contentsline {subsection}{\numberline {2.3}関連度の計算}{5}
+\contentsline {subsection}{\numberline {2.4}言い換えの関係の語の検出}{6}
+\contentsline {subsection}{\numberline {2.5}互いに類似する語の検出}{6}
+\contentsline {subsubsection}{\numberline {2.5.1}Dekang Linの手法の利用}{6}
+\contentsline {subsubsection}{\numberline {2.5.2}Latent Spaceでのモデル化}{7}
+\contentsline {subsection}{\numberline {2.6}アラインメント}{8}
+\contentsline {subsection}{\numberline {2.7}形態素解析}{8}
+\contentsline {section}{\numberline {3}実験}{9}
+\contentsline {subsection}{\numberline {3.1}実験概要}{9}
+\contentsline {subsection}{\numberline {3.2}実験条件}{9}
+\contentsline {subsection}{\numberline {3.3}実験結果}{10}
+\contentsline {subsubsection}{\numberline {3.3.1}内容語の抽出}{10}
 \contentsline {subsubsection}{\numberline {3.3.2}アラインメント}{10}
-\contentsline {section}{\numberline {4}考察}{10}
-\contentsline {subsection}{\numberline {4.1}内容語の抽出}{10}
+\contentsline {section}{\numberline {4}考察}{11}
+\contentsline {subsection}{\numberline {4.1}内容語の抽出}{11}
 \contentsline {subsection}{\numberline {4.2}アラインメント}{11}
-\contentsline {section}{\numberline {5}今後の課題}{11}
-\contentsline {subsection}{\numberline {5.1}データ収集の自動化}{11}
-\contentsline {subsection}{\numberline {5.2}内容語の抽出}{11}
+\contentsline {section}{\numberline {5}今後の課題}{12}
+\contentsline {subsection}{\numberline {5.1}データ収集の自動化}{12}
+\contentsline {subsection}{\numberline {5.2}内容語の抽出}{12}
 \contentsline {subsection}{\numberline {5.3}言い換え語・類似語の検出}{12}
 \contentsline {subsection}{\numberline {5.4}ユーザー評価の実施}{12}
-\contentsline {section}{\numberline {6}結論}{12}
+\contentsline {section}{\numberline {6}結論}{13}
