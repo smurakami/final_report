@@ -301,20 +301,18 @@ w_m\;\;\;{\rm if} \;\; X_ij = 0
 
 行列Pの各列には、Xに現れていた、各単語の「どの文書でどのくらい重要になるか」という特徴量が低次元に圧縮されて格納されている。これは、単語の情報が抽象化されて入っていると言える。このPの中で、コサイン類似度の高い列同士のペアを見つければ、その列に割り当てられている単語同士は互いに類似する単語と言えるようになる。本研究では、コサイン類似度が閾値を越えたペアを類似語とみなす。この閾値を調整すると、検出される類似語のペアの質が変わるので、実験によって最適な値を求める必要がある。
 
-\subsection{アラインメント}
-上記の手法で検出された「完全に一致する単語」「言い換えの単語」「互いに類似する単語」をもとに、ニュースwebニュースの断片とtweetの関連度を計算し、ニュースwebニュースの断片とtweetがどのように対応しているのかを算出し、アラインメントをとる。ニュース記事$d$中のセンテンス$s$とtweet$t$の関連度は、以下の式によって定義する。
+\subsection{ニュース断片とTwitter上の投稿の結びつけ}
+この段階では、式\ref{eq:rel}により算出されたwebニュース断片とTwitter上の投稿の関連度をもとに、ニュース断片とTwitter上の投稿の結びつけを行う。これを、アラインメントと定義する。ニュース断片とTwitter上の投稿の結びつけでは、全てのTwitter上の投稿がニュース断片と結びつくような状態になってはいけない。逆に、全てのTwitter上の投稿がニュース断片に結びつかないような状態になっても、ツールとしての有効性が失われる。したがって、この段階ではTwitter上の投稿がニュース断片にほどよくばらけて結びつくようにコントロールする必要がある。本研究では、このようなことが実現可能な手法として、一対多の安定結婚アルゴリズム\cite{psmp}によるアラインメントを採用した。
 
-\begin{equation}
-  {\rm Rel}(s, t) = \alpha \sum_{\{w|w \in A\}} w * {\rm tfidf}_{w, d} +
-                    \beta  \sum_{\{w|w \in B\}} w * {\rm tfidf}_{w, d} +
-                    \gamma \sum_{\{w|w \in C\}} w * {\rm tfidf}_{w, d}
-  \label{eq:rel}
-\end{equation}
+\subsubsection{安定結婚問題}
+この節では安定結婚問題の概要とその解法を説明する。
+安定結婚問題\cite{smp}は、安定マッチング問題の一つである。
+N人の男性とN人の女性がいる状況で、全ての男性、女性を
 
-ここで、$A$は$s$と$t$の中で完全に一致する単語の集合であり、$B$は$s$と$t$の中で言い換えの関係にある単語の集合であり、$C$は$s$と$t$の中で互いに類似の関係にある単語の集合である。同じ単語が複数回出てきた場合も、それは別々の単語として処理する。すなわち、tf-idfの高い単語が$s$と$t$の両方に複数回にわたって出現していたら、それだけ関連度${\rm Rel}(s, t)$は高くなる。$\alpha$, $\beta$, $\gamma$は定数であり、実験によりアラインメントの結果を見ながら調整する。「完全に一致する単語」の方が、「言い換えの単語」や「互いに類似する単語」よりも関連度に大きな影響力を持つと考えられる。また、「言い換えの単語」は「互いに類似する単語」よりも関連度に大きな影響力を持つと考えられる。そのため、$\alpha > \beta > \gamma$となることが予想される。
+% ここから書き始め
 
+安定結婚問題では、
 
-計算された関連度${\rm Rel}(s, t)$がある閾値よりも大きければ、$s$と$t$は互いに対応する関係にあると結論づけることができる。この閾値を実験により調整する。
 
 \subsection{形態素解析}
 本研究の最終的な目的は、言語に依存しないツールの構築であるが、実験段階では便宜的に日本語を対象とする。日本語は、英語等の言語と違い、単語間の区切りの位置が明確でない。そのため、どの文字からどの文字が一つの単語であるのかを分析する必要がある。今回は、MeCab\cite{MeCab}という形態素解析ツールを使う。MeCabは、Conditional Random Fieldsを用いて日本語の単語区切りと、それぞれの単語の品詞を推定するツールである。例えば、「東京都に住む」という文章は、「東京　都　に　住む」という区切り方に分割され、「東京」は名詞、「都」は接尾辞、「に」は格助詞、「住む」は動詞であると、品詞が解析される。
@@ -409,6 +407,8 @@ Pages 89-98
  \bibitem {MeCab} 工藤 拓, 山本 薫, 松本 裕治. Applying Conditional Random Fields to Japanese Morphologiaical Analysis, 情報処理学会研究報告. 自然言語処理研究会報告 2004, Pages 89-96
  \bibitem {information} Christopher D. Manning, Prabhakar Raghavan and Hinrich Schu"tze: Introduction to Information Retrieval, Cambridge University Press, 2008.
  \bibitem {wordnet-similarity}Ted Pedersen, Siddharth Patwardhan and Jason Michelizzi. WordNet::Similarity - Measuring the Relatedness of Concepts, HLT-NAACL--Demonstrations '04 Demonstration Papers at HLT-NAACL 2004 Pages 38-41
+ \bibitem {smp} D.Gale and L.S.Shapley. COLLEGE ADMISSIONS AND THE STABILITY OF MARRIAGE (1962), The American Mathematical Monthly Vol. 69, pp. 9-15.
+ \bibitem {psmp} 奥居 哲, 柴田 祥一, 岡田 稔, 川島 信. 安定結婚アルゴリズムに基づく卒業研究配属の事例研究. 社団法人情報処理学会 研究報告kennkyuuhoukoku 2003, pp. 67-72.
 \end{thebibliography}
 \end{document}
 
