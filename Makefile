@@ -3,6 +3,7 @@ TEX = $(DOCUMENT).tex
 DVI = $(DOCUMENT).dvi
 LOG = $(DOCUMENT).log
 AUX = $(DOCUMENT).aux
+TOC = $(DOCUMENT).toc
 PDF = $(DOCUMENT).pdf
 
 all:
@@ -17,3 +18,4 @@ clean:
 	rm $(DVI)
 	rm $(LOG)
 	rm $(AUX)
+	rm $(TOC)

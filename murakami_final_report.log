@@ -1,4 +1,4 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  21 JAN 2014 22:46
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  22 JAN 2014 16:59
 **murakami_final_report.tex
 (./murakami_final_report.tex
 pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
@@ -107,7 +107,11 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(./murakami_final_report.aux)
+(./murakami_final_report.aux
+
+LaTeX Warning: Label `eq:rel' multiply defined.
+
+)
 \openout1 = `murakami_final_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -167,17 +171,28 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
- [3] [4] [5] [6]
-[7]
-
-LaTeX Warning: Reference `information' on page 8 undefined on input line 280.
-
-[8] [9]
-File: image/content_word.eps Graphic file (type eps)
- <image/content_word.eps>
+ [3] [4] [5]
 File: image/score.eps Graphic file (type eps)
- <image/score.eps> [10] [11] [12] [13] [14]
-(./murakami_final_report.aux)
+
+<image/score.eps> [6] [7] [8]
+
+LaTeX Warning: Reference `information' on page 9 undefined on input line 302.
+
+[9]
+
+LaTeX Warning: Reference `fig2' on page 10 undefined on input line 323.
+
+File: image/content_word.eps Graphic file (type eps)
+<image/content_word.eps> [10]
+
+LaTeX Warning: Reference `fig2' on page 11 undefined on input line 333.
+
+File: image/score.eps Graphic file (type eps)
+<image/score.eps>
+
+LaTeX Warning: Reference `fig2' on page 11 undefined on input line 350.
+
+[11] [12] [13] [14] [15] (./murakami_final_report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 55.12pt have occurred.
@@ -185,14 +200,17 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 1246 strings out of 94682
- 14578 string characters out of 1177970
+ 1247 strings out of 94682
+ 14588 string characters out of 1177970
  70734 words of memory out of 1500000
- 4555 multiletter control sequences out of 10000+50000
+ 4556 multiletter control sequences out of 10000+50000
  17006 words of font info for 67 fonts, out of 1200000 for 2000
  566 hyphenation exceptions out of 8191
  27i,9n,21p,978b,413s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on murakami_final_report.dvi (16 pages, 65616 bytes).
+Output written on murakami_final_report.dvi (17 pages, 68196 bytes).
