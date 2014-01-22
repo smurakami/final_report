@@ -7,8 +7,8 @@ TOC = $(DOCUMENT).toc
 PDF = $(DOCUMENT).pdf
 
 all:
-	ebb *.jpg
-	ebb *.png
+	ebb image/*.jpg
+	ebb image*.png
 	make dvi
 	dvipdfmx $(DVI)
 	open $(PDF)

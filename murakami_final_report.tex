@@ -191,18 +191,42 @@ Twitter上においては、あるニュースに関する投稿をする際に�
 「互いに類似する単語」の検出にはいくつかの方法が考えられるが、本研究では言い換えの関係の語の検出と同じく、WordNetを利用して類似する単語の検出を行う。しかし、WordNetを用いた類似語の検出にはいくつかの問題点が存在するため、考えられる代替案としてDekang Linの手法\cite{DekangLin}、Latent Spaceでのモデル化\cite{LatentSpace}、Co Clustering\cite{CoClustering}を後に紹介する。
 
 \subsubsection{WordNetを用いた類似語の検出}
-WordNetでは同義語同士がSynsetというグループにまとめられているが、各々のSynsetは他のSynsetと繋がりを持っている。Synsetのネットワークの例を図\ref{word_net}に示す。
+WordNetでは同義語同士がSynsetというグループにまとめられているが、各々のSynsetは他のSynsetと繋がりを持っている。Synset同士の繋がりにはいくつかの種類がある。Synset同士の繋がりの種類は、単語の品詞によって異なる。以下に、名詞のSynsetにおけるSynset間の繋がりの例を示す。
+
+\begin{itemize}
+\item 上位語 \\
+すべてのXがYの種類の一であるならYはXの上位語である。
+\item 下位語 \\
+すべてのYがXの種類の一であるならYはXの下位語である。
+\item 同族後 \\
+XとYの上位語が同じなら、YはXの同族語である。
+\item 全体語\\
+XがYの一部であるなら、YはXの全体語である。
+\item 部分語 \\
+YがXの一部であるなら、YはXの部分語である。
+\end{itemize}
+
+以上のような繋がりを用いて、WordNet中ではSynset同士が階層構造を形成している。
+Synsetのネットワークの例を図\ref{word_net}に示す。
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[scale=0.5]{image/score.eps}
+    \includegraphics[scale=0.5]{image/wordnet.eps}
   \end{center}
-  \caption{アラインメントの結果}
+  \caption{WordNetにおけるSynset同士の繋がりの例}
   \label{word_net}
 \end{figure}
 
+図\ref{word_net}において、artefactはmotor vehicleの上位語であり、motorcar, go-kart, truckはともにmotor vehicleの下位語であるので、互いに同族語である。
+
+このようなネットワーク上では、意味の近い単語ほど短い経路でたどり着くことができ、意味の遠い単語ほどたどり着くのに長い経路を必要とすると考えることができる。このネットワーク上での距離を測定することで、Synset間の類似度を測定することが出来る\cite{wordnet-similarity}。本研究ではこの性質を利用して単語間の類似度を測定する。そして、類似度が一定の閾値以上の単語同士を互いに類似する単語として集計する。この類似度は実験により調整する。
+
 \subsubsection{Dekang Linの手法の利用}
-「互いに類似する語」の検出方法として、Dekang Linの手法\cite{DekangLin}の利用が挙げられる。これは、単語同士がどれだけ「似ているのか」を計算するための手法である。Dekang Linの手法では、単語同士の類似度は以下の式で定義される。
+WordNetによる類似度の測定は効果的であるが、人手によって構築された意味辞書に依存しているという欠点がある。英語圏には既に完成度が高いWordNetが存在するが、それをもとに作られた日本語圏のWordNetはまだ語彙数が少ない。このように、WordNetを用いた類似語の検出は言語に依存してしまう。また、ソーシャルネットワーキングサービス上ではネットスラング等の辞書上に無い新しい語彙が用いられる場合もあり、その場合もWordNetでは対応することが出来ない。
+
+以上のような理由から、本研究のツールにおける類似語の検出には意味辞書に依存せずに、収集したテキストコーパスから学習できるような手法が望ましいと考えられる。
+
+このような「互いに類似する語」の検出方法として、Dekang Linの手法\cite{DekangLin}の利用が挙げられる。これは、単語同士がどれだけ「似ているのか」を計算するための手法である。Dekang Linの手法では、単語同士の類似度は以下の式で定義される。
 
 \begin{equation}
   {\rm sim}(w_1, w_2) = \frac{\sum_{(r,w)\in T(w_1)\cap T(w_2)} (I(w_1, r, w) + I(w_2, r, w))}{\sum_{(r,w) \in T(w_1)}I(w_1, r, w) + \sum_{(r,w) \in T(w_2)}I(w_2, r, w)}
@@ -239,7 +263,7 @@ $P_{MLE}$は以下の式を満たすことが示されている。
 本研究では、この定義に従って${\rm sim}(w_1, w_2)$を計算し、この値が閾値を越えたペアを互いに類似する単語とみなす。この閾値を調整すると、検出される類似語のペアの質が変わるので、実験によって最適な値を求める。
 
 \subsubsection{Latent Spaceでのモデル化}
-「互いに類似する語」のもう一つの検出方法としてLatent Spaceでのセンテンスのモデル化\cite{LatentSpace}が挙げられる。この手法では、
+意味辞書に依存せずに「互いに類似する語」のもう一つの検出方法としてLatent Spaceでのセンテンスのモデル化\cite{LatentSpace}が挙げられる。この手法では、
 
 \begin{equation}
   X_{ij} = {\rm tfidf}_{i,j}
@@ -275,7 +299,7 @@ w_m\;\;\;{\rm if} \;\; X_ij = 0
 \end{equation}
 と表される。
 
-行列Pの各列には、Xに現れていた、各単語の「どの文書でどのくらい重要になるか」という特徴量が低次元に圧縮されて格納されている。これは、単語の情報が抽象化されて入っていると言える。このPの中で、コサイン類似度の高い列同士のペアを見つければ、その列に割り当てられている単語同士は互いに類似する単語と言えるようになる。本研究では、コサイン類似度が閾値を越えたペアを類似語とみなす。この閾値を調整すると、検出される類似語のペアの質が変わるので、実験によって最適な値を求める。
+行列Pの各列には、Xに現れていた、各単語の「どの文書でどのくらい重要になるか」という特徴量が低次元に圧縮されて格納されている。これは、単語の情報が抽象化されて入っていると言える。このPの中で、コサイン類似度の高い列同士のペアを見つければ、その列に割り当てられている単語同士は互いに類似する単語と言えるようになる。本研究では、コサイン類似度が閾値を越えたペアを類似語とみなす。この閾値を調整すると、検出される類似語のペアの質が変わるので、実験によって最適な値を求める必要がある。
 
 \subsection{アラインメント}
 上記の手法で検出された「完全に一致する単語」「言い換えの単語」「互いに類似する単語」をもとに、ニュースwebニュースの断片とtweetの関連度を計算し、ニュースwebニュースの断片とtweetがどのように対応しているのかを算出し、アラインメントをとる。ニュース記事$d$中のセンテンス$s$とtweet$t$の関連度は、以下の式によって定義する。
@@ -384,6 +408,7 @@ Pages 864-872
 Pages 89-98
  \bibitem {MeCab} 工藤 拓, 山本 薫, 松本 裕治. Applying Conditional Random Fields to Japanese Morphologiaical Analysis, 情報処理学会研究報告. 自然言語処理研究会報告 2004, Pages 89-96
  \bibitem {information} Christopher D. Manning, Prabhakar Raghavan and Hinrich Schu"tze: Introduction to Information Retrieval, Cambridge University Press, 2008.
+ \bibitem {wordnet-similarity}Ted Pedersen, Siddharth Patwardhan and Jason Michelizzi. WordNet::Similarity - Measuring the Relatedness of Concepts, HLT-NAACL--Demonstrations '04 Demonstration Papers at HLT-NAACL 2004 Pages 38-41
 \end{thebibliography}
 \end{document}
 
