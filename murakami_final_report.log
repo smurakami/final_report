@@ -1,4 +1,4 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  22 JAN 2014 19:03
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  26 JAN 2014 20:07
 **murakami_final_report.tex
 (./murakami_final_report.tex
 pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
@@ -107,93 +107,195 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
+(/opt/local/share/texmf/tex/latex/listing/listings.sty
+\lst@mode=\count103
+\lst@gtempboxa=\box43
+\lst@token=\toks21
+\lst@length=\count104
+\lst@currlwidth=\dimen132
+\lst@column=\count105
+\lst@pos=\count106
+\lst@lostspace=\dimen133
+\lst@width=\dimen134
+\lst@newlines=\count107
+\lst@lineno=\count108
+\lst@maxwidth=\dimen135
+
+(/opt/local/share/texmf-dist/tex/latex/listings/lstpatch.sty
+
+***
+*** This is a patch for listings 1.3, but you're using
+*** version 1.4.
+***
+*** Patch file not loaded.
+***
+
+) (/opt/local/share/texmf/tex/latex/listing/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count109
+\lst@skipnumbers=\count110
+\lst@framebox=\box44
+)
+(/opt/local/share/texmf/tex/latex/listing/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/opt/local/share/texmf/tex/latex/listing/jlisting.sty
+Package: jlisting 2006/02/20 0.2 (Thor)
+\lst@nextchar=\count111
+\lst@inputfile=\read1
+)
+(/opt/local/share/texmf/tex/latex/listing/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
 (./murakami_final_report.aux)
 \openout1 = `murakami_final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+\c@lstlisting=\count112
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <80> not available
-(Font)              size <24.88> substituted on input line 22.
+(Font)              size <24.88> substituted on input line 45.
 
 [1
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 53.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 76.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 53.
- (./murakami_final_report.toc
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-)
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 76.
+ (./murakami_final_report.toc)
 \tf@toc=\write3
 \openout3 = `murakami_final_report.toc'.
 
  [2]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 60.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 60.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 83.
  [1]
 File: ai/social_annotation.eps Graphic file (type eps)
  <ai/social_annotation.eps>
-Overfull \hbox (40.26065pt too wide) in paragraph at lines 79--80
+Overfull \hbox (40.26065pt too wide) in paragraph at lines 102--103
  [] 
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 113.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 136.
 
  (/opt/local/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
- [3] [4] [5] [6]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 143.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 143.
+
+
+LaTeX Warning: Citation `nlpml' on page 3 undefined on input line 143.
+
+[3]
+
+LaTeX Warning: Citation `tfidf' on page 4 undefined on input line 157.
+
+[4] [5]
+
+LaTeX Warning: Citation `DekangLin' on page 6 undefined on input line 214.
+
+
+LaTeX Warning: Citation `LatentSpace' on page 6 undefined on input line 214.
+
+
+LaTeX Warning: Citation `CoClustering' on page 6 undefined on input line 214.
+
+[6]
 File: image/wordnet.eps Graphic file (type eps)
+ <image/wordnet.eps>
 
-<image/wordnet.eps> [7] [8]
+LaTeX Warning: Citation `wordnet-similarity' on page 7 undefined on input line 
+245.
 
-LaTeX Warning: Citation `smp' on page 9 undefined on input line 305.
+
+LaTeX Warning: Citation `DekangLin' on page 7 undefined on input line 252.
+
+[7]
+
+LaTeX Warning: Citation `LatentSpace' on page 8 undefined on input line 289.
+
+[8]
+
+LaTeX Warning: Citation `smp' on page 9 undefined on input line 328.
+
+
+LaTeX Warning: Citation `psmp' on page 9 undefined on input line 328.
+
+
+LaTeX Warning: Citation `smp' on page 9 undefined on input line 333.
 
 [9]
 
-LaTeX Warning: Reference `information' on page 10 undefined on input line 317.
+LaTeX Warning: Reference `match' on page 10 undefined on input line 341.
+
+
+LaTeX Warning: Reference `match' on page 10 undefined on input line 341.
+
+
+LaTeX Warning: Reference `match' on page 10 undefined on input line 342.
+
+File: image/match.eps Graphic file (type eps)
+<image/match.eps>
+
+LaTeX Warning: Citation `MeCab' on page 10 undefined on input line 362.
 
 [10]
 
-LaTeX Warning: Reference `fig2' on page 11 undefined on input line 338.
+LaTeX Warning: Reference `information' on page 11 undefined on input line 368.
+
+[11]
+
+LaTeX Warning: Reference `fig2' on page 12 undefined on input line 389.
 
 File: image/content_word.eps Graphic file (type eps)
 <image/content_word.eps>
 
-LaTeX Warning: Reference `fig2' on page 11 undefined on input line 348.
+LaTeX Warning: Reference `fig2' on page 12 undefined on input line 399.
 
-[11]
+[12]
+
+LaTeX Warning: Reference `fig3' on page 13 undefined on input line 402.
+
 File: image/score.eps Graphic file (type eps)
- <image/score.eps>
+<image/score.eps>
 
-LaTeX Warning: Reference `fig2' on page 12 undefined on input line 365.
+LaTeX Warning: Reference `fig2' on page 13 undefined on input line 416.
 
-[12] [13] [14] [15] (./murakami_final_report.aux)
+[13]
+
+LaTeX Warning: Citation `DekangLin' on page 14 undefined on input line 431.
+
+
+LaTeX Warning: Citation `LatentSpace' on page 14 undefined on input line 431.
+
+[14] [15] [16] (./murakami_final_report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 55.12pt have occurred.
@@ -206,12 +308,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 1251 strings out of 94682
- 14641 string characters out of 1177970
- 71734 words of memory out of 1500000
- 4559 multiletter control sequences out of 10000+50000
- 17006 words of font info for 67 fonts, out of 1200000 for 2000
+ 2551 strings out of 94682
+ 33820 string characters out of 1177970
+ 124039 words of memory out of 1500000
+ 5835 multiletter control sequences out of 10000+50000
+ 17937 words of font info for 71 fonts, out of 1200000 for 2000
  566 hyphenation exceptions out of 8191
- 27i,9n,21p,978b,413s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 27i,9n,40p,978b,1175s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on murakami_final_report.dvi (17 pages, 71000 bytes).
+Output written on murakami_final_report.dvi (18 pages, 66208 bytes).

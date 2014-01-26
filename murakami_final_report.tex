@@ -1,6 +1,7 @@
 \documentclass[12pt]{jarticle}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{amsmath}
+\usepackage{listings, jlisting}
 
 \setlength{\topmargin}{30mm}
 \addtolength{\topmargin}{-1in}
@@ -13,6 +14,28 @@
 \setlength{\headsep}{0mm}
 \setlength{\headheight}{0mm}
 \setlength{\topskip}{0mm}
+
+% ソースコード貼付け用の設定
+\lstset{%
+  language={Python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
 
 \begin{document}
 
@@ -302,16 +325,37 @@ w_m\;\;\;{\rm if} \;\; X_ij = 0
 行列Pの各列には、Xに現れていた、各単語の「どの文書でどのくらい重要になるか」という特徴量が低次元に圧縮されて格納されている。これは、単語の情報が抽象化されて入っていると言える。このPの中で、コサイン類似度の高い列同士のペアを見つければ、その列に割り当てられている単語同士は互いに類似する単語と言えるようになる。本研究では、コサイン類似度が閾値を越えたペアを類似語とみなす。この閾値を調整すると、検出される類似語のペアの質が変わるので、実験によって最適な値を求める必要がある。
 
 \subsection{ニュース断片とTwitter上の投稿の結びつけ}
-この段階では、式\ref{eq:rel}により算出されたwebニュース断片とTwitter上の投稿の関連度をもとに、ニュース断片とTwitter上の投稿の結びつけを行う。これを、アラインメントと定義する。ニュース断片とTwitter上の投稿の結びつけでは、全てのTwitter上の投稿がニュース断片と結びつくような状態になってはいけない。逆に、全てのTwitter上の投稿がニュース断片に結びつかないような状態になっても、ツールとしての有効性が失われる。したがって、この段階ではTwitter上の投稿がニュース断片にほどよくばらけて結びつくようにコントロールする必要がある。本研究では、このようなことが実現可能な手法として、一対多の安定結婚アルゴリズム\cite{psmp}によるアラインメントを採用した。
+この段階では、式\ref{eq:rel}により算出されたwebニュース断片とTwitter上の投稿の関連度をもとに、ニュース断片とTwitter上の投稿の結びつけを行う。これを、アラインメントと定義する。ニュース断片とTwitter上の投稿の結びつけでは、全てのTwitter上の投稿がニュース断片と結びつくような状態になってはいけない。逆に、全てのTwitter上の投稿がニュース断片に結びつかないような状態になっても、ツールとしての有効性が失われる。したがって、この段階ではTwitter上の投稿がニュース断片にほどよくばらけて結びつくようにコントロールする必要がある。本研究では、このようなことが実現可能な手法として、安定結婚アルゴリズム\cite{smp}の拡張である、一対多の安定結婚アルゴリズム\cite{psmp}によるアラインメントを採用した。
 
 \subsubsection{安定結婚問題}
 この節では安定結婚問題の概要とその解法を説明する。
+
 安定結婚問題\cite{smp}は、安定マッチング問題の一つである。
-N人の男性とN人の女性がいる状況で、全ての男性、女性を
+安定結婚問題では、N人の男性とN人の女性がいる状況で、「不倫」の起こることの無いようにN組の結婚を成立させることを目的とする。
+不倫の起こらないN組の結婚の組み合わせを、「安定なマッチング」という。
+安定結婚問題では、N人の男性はそれぞれ、どの女性を好むかを順位付けした長さNの選好度リストをもっている。
+N人の女性もそれぞれ同様に、どの男性を好むかを順位付けした長さNの選好度リストを持っている。
+ここでいう「不倫」とは、N組のカップルが成立している中で、互いに現在組んでいるカップルよりも好きなペアが発生することを指す。
+このようなペアを「ブロッキングペア」と定義する。
 
-% ここから書き始め
+安定結婚問題の例を図\ref{match}に示す。図\ref{match}上段の安定なマッチングの例では、ブロッキングペアが存在しないので不倫は起こらない。
+それに対して、図\ref{match}下段の不安点なマッチングの例では、男性4と女性4のペアがブロッキングペアとなるので、不倫がおこってしまう。
 
-安定結婚問題では、
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.5]{image/match.eps}
+  \end{center}
+  \caption{安定結婚問題の例}
+  \label{match}
+\end{figure}
+
+安定結婚問題の全ての事例に対して、安定なマッチングが必ず存在することが証明されている。そのようなマッチングを見つける手法として、Gale-Shapleyアルゴリズムというものが知られている。
+
+Gale-Shapleyアルゴリズムの疑似コードをリスト
+
+\begin{lstlisting}
+  printf("hello");
+\end{lstlisting}
 
 
 \subsection{形態素解析}

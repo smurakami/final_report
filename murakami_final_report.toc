@@ -12,20 +12,20 @@
 \contentsline {subsubsection}{\numberline {2.5.2}Dekang Linの手法の利用}{7}
 \contentsline {subsubsection}{\numberline {2.5.3}Latent Spaceでのモデル化}{8}
 \contentsline {subsection}{\numberline {2.6}ニュース断片とTwitter上の投稿の結びつけ}{9}
-\contentsline {subsubsection}{\numberline {2.6.1}安定結婚アルゴリズム}{9}
-\contentsline {subsection}{\numberline {2.7}形態素解析}{9}
-\contentsline {section}{\numberline {3}実験}{10}
-\contentsline {subsection}{\numberline {3.1}実験概要}{10}
+\contentsline {subsubsection}{\numberline {2.6.1}安定結婚問題}{9}
+\contentsline {subsection}{\numberline {2.7}形態素解析}{10}
+\contentsline {section}{\numberline {3}実験}{11}
+\contentsline {subsection}{\numberline {3.1}実験概要}{11}
 \contentsline {subsection}{\numberline {3.2}実験条件}{11}
-\contentsline {subsection}{\numberline {3.3}実験結果}{11}
-\contentsline {subsubsection}{\numberline {3.3.1}内容語の抽出}{11}
-\contentsline {subsubsection}{\numberline {3.3.2}アラインメント}{12}
-\contentsline {section}{\numberline {4}考察}{12}
-\contentsline {subsection}{\numberline {4.1}内容語の抽出}{12}
-\contentsline {subsection}{\numberline {4.2}アラインメント}{13}
-\contentsline {section}{\numberline {5}今後の課題}{13}
-\contentsline {subsection}{\numberline {5.1}データ収集の自動化}{13}
-\contentsline {subsection}{\numberline {5.2}内容語の抽出}{13}
-\contentsline {subsection}{\numberline {5.3}言い換え語・類似語の検出}{13}
-\contentsline {subsection}{\numberline {5.4}ユーザー評価の実施}{14}
-\contentsline {section}{\numberline {6}結論}{14}
+\contentsline {subsection}{\numberline {3.3}実験結果}{12}
+\contentsline {subsubsection}{\numberline {3.3.1}内容語の抽出}{12}
+\contentsline {subsubsection}{\numberline {3.3.2}アラインメント}{13}
+\contentsline {section}{\numberline {4}考察}{13}
+\contentsline {subsection}{\numberline {4.1}内容語の抽出}{13}
+\contentsline {subsection}{\numberline {4.2}アラインメント}{14}
+\contentsline {section}{\numberline {5}今後の課題}{14}
+\contentsline {subsection}{\numberline {5.1}データ収集の自動化}{14}
+\contentsline {subsection}{\numberline {5.2}内容語の抽出}{14}
+\contentsline {subsection}{\numberline {5.3}言い換え語・類似語の検出}{14}
+\contentsline {subsection}{\numberline {5.4}ユーザー評価の実施}{15}
+\contentsline {section}{\numberline {6}結論}{15}
