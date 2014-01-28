@@ -1,4 +1,4 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  27 JAN 2014 16:54
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  28 JAN 2014 21:10
 **murakami_final_report.tex
 (./murakami_final_report.tex
 pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
@@ -158,6 +158,9 @@ Package: jlisting 2006/02/20 0.2 (Thor)
 \lst@nextchar=\count111
 \lst@inputfile=\read1
 )
+\c@theorem=\count112
+\c@definittion=\count113
+
 (/opt/local/share/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2004/07/16 v3.0c Customising captions (AS)
 \captionmargin=\dimen136
@@ -171,28 +174,31 @@ Package caption Info: listings package v1.2 (or newer) detected on input line 6
 (/opt/local/share/texmf/tex/latex/listing/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(./murakami_final_report.aux)
+(./murakami_final_report.aux
+
+LaTeX Warning: Label `Gale-Shaplay' multiply defined.
+
+)
 \openout1 = `murakami_final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-\c@lstlisting=\count112
-
-(/opt/local/share/texmf-dist/tex/latex/ms/ragged2e.sty
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+\c@lstlisting=\count114
+ (/opt/local/share/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2003/03/25 v2.04 ragged2e Package (MS)
 
 (/opt/local/share/texmf-dist/tex/latex/ms/everysel.sty
@@ -221,7 +227,7 @@ LaTeX Info: Redefining \selectfont on input line 125.
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <80> not available
-(Font)              size <24.88> substituted on input line 47.
+(Font)              size <24.88> substituted on input line 51.
 
 [1
 
@@ -232,43 +238,55 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <80> not available
  [2] [1]
 File: ai/social_annotation.eps Graphic file (type eps)
  <ai/social_annotation.eps>
-Overfull \hbox (40.26065pt too wide) in paragraph at lines 104--105
+Overfull \hbox (40.26065pt too wide) in paragraph at lines 108--109
  [] 
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 138.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 142.
 
  (/opt/local/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 142.
  [3] [4] [5] [6]
 File: image/wordnet.eps Graphic file (type eps)
 
 <image/wordnet.eps> [7] [8] [9]
 File: image/match.eps Graphic file (type eps)
  <image/match.eps> [10] [11]
+File: image/psmp.eps Graphic file (type eps)
+ <image/psmp.eps>
+[12] [13]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 497.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 497.
 
-LaTeX Warning: Reference `information' on page 12 undefined on input line 406.
+ (/opt/local/share/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 497.
+ [14]
 
-[12]
+LaTeX Warning: Reference `information' on page 15 undefined on input line 508.
 
-LaTeX Warning: Reference `fig2' on page 13 undefined on input line 427.
+[15]
+
+LaTeX Warning: Reference `fig2' on page 16 undefined on input line 529.
 
 File: image/content_word.eps Graphic file (type eps)
 <image/content_word.eps>
 
-LaTeX Warning: Reference `fig2' on page 13 undefined on input line 437.
+LaTeX Warning: Reference `fig2' on page 16 undefined on input line 539.
 
-[13]
 File: image/score.eps Graphic file (type eps)
- <image/score.eps>
+<image/score.eps> [16]
 
-LaTeX Warning: Reference `fig2' on page 14 undefined on input line 454.
+LaTeX Warning: Reference `fig2' on page 17 undefined on input line 556.
 
-[14] [15] [16] [17] (./murakami_final_report.aux)
+[17] [18] [19] [20] (./murakami_final_report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 55.12pt have occurred.
@@ -276,14 +294,17 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 3010 strings out of 94682
- 42006 string characters out of 1177970
- 188008 words of memory out of 1500000
- 6276 multiletter control sequences out of 10000+50000
+ 3056 strings out of 94682
+ 42619 string characters out of 1177970
+ 179135 words of memory out of 1500000
+ 6318 multiletter control sequences out of 10000+50000
  16454 words of font info for 62 fonts, out of 1200000 for 2000
  566 hyphenation exceptions out of 8191
- 29i,9n,40p,978b,1721s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 29i,9n,40p,978b,1726s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on murakami_final_report.dvi (19 pages, 83160 bytes).
+Output written on murakami_final_report.dvi (22 pages, 94644 bytes).
