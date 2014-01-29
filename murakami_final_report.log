@@ -1,4 +1,4 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  28 JAN 2014 21:10
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  29 JAN 2014 18:50
 **murakami_final_report.tex
 (./murakami_final_report.tex
 pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
@@ -238,18 +238,18 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <80> not available
  [2] [1]
 File: ai/social_annotation.eps Graphic file (type eps)
  <ai/social_annotation.eps>
-Overfull \hbox (40.26065pt too wide) in paragraph at lines 108--109
+Overfull \hbox (40.26065pt too wide) in paragraph at lines 107--108
  [] 
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 142.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 141.
 
  (/opt/local/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 142.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 141.
  [3] [4] [5] [6]
 File: image/wordnet.eps Graphic file (type eps)
 
@@ -260,33 +260,29 @@ File: image/psmp.eps Graphic file (type eps)
  <image/psmp.eps>
 [12] [13]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 497.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 497.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 496.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 496.
 
  (/opt/local/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 497.
- [14]
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 496.
+ [14] [15]
 
-LaTeX Warning: Reference `information' on page 15 undefined on input line 508.
-
-[15]
-
-LaTeX Warning: Reference `fig2' on page 16 undefined on input line 529.
+LaTeX Warning: Reference `fig2' on page 16 undefined on input line 583.
 
 File: image/content_word.eps Graphic file (type eps)
 <image/content_word.eps>
 
-LaTeX Warning: Reference `fig2' on page 16 undefined on input line 539.
+LaTeX Warning: Reference `fig2' on page 16 undefined on input line 593.
 
 File: image/score.eps Graphic file (type eps)
-<image/score.eps> [16]
+<image/score.eps> [16] [17]
 
-LaTeX Warning: Reference `fig2' on page 17 undefined on input line 556.
+LaTeX Warning: Reference `fig2' on page 18 undefined on input line 610.
 
-[17] [18] [19] [20] (./murakami_final_report.aux)
+[18] [19] [20] (./murakami_final_report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 55.12pt have occurred.
@@ -299,12 +295,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3056 strings out of 94682
- 42619 string characters out of 1177970
+ 3059 strings out of 94682
+ 42641 string characters out of 1177970
  179135 words of memory out of 1500000
- 6318 multiletter control sequences out of 10000+50000
+ 6321 multiletter control sequences out of 10000+50000
  16454 words of font info for 62 fonts, out of 1200000 for 2000
  566 hyphenation exceptions out of 8191
  29i,9n,40p,978b,1726s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on murakami_final_report.dvi (22 pages, 94644 bytes).
+Output written on murakami_final_report.dvi (22 pages, 95608 bytes).

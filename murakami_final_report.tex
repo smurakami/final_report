@@ -77,7 +77,6 @@
 
 \end{LARGE}
 
-
 \newpage
 \tableofcontents
 
@@ -504,24 +503,79 @@ N人の女性もそれぞれ同様に、どの男性を好むかを順位付け�
 % 一般に、格助詞や助動詞は機能語であるので、文章の特性を調べる際には重要でない。その一方、名詞、動詞、形容詞は内容語になりやすい傾向にある。本研究では、機能語である格助詞、助動詞等の機能語の除去をMeCabでの形態素解析の段階で行う。対象言語を広げる場合には、機能語の除去のための代替の手段を考える必要がある。
 
 \section{実験}
-\subsection{実験概要}
-今回は2つの実験を行った。まず一つ目の実験では、tf-idfによりインターネット上のニュース記事とtwitterの書き込みから内容語を抽出するシステムを構築し、その性能を評価した。内容語の抽出に関しては、サンプル記事と、その記事に言及しているtweetに現れている各単語についてtf-idfを計算し、ソートすることにより、内容語と判定する基準である閾値がどのような値になるのかを検討した。次に、ニュース記事とtweetの間の関連度を「単語の一致」のみを指標として計算し、ニュース記事とtweetのアラインメントを取った。すなわち、式\ref{eq:rel}の$\beta$と$\gamma$をゼロにしたモデルでアライントを取ったことになる。結果を人間の手によりアラインメントを取ったものと比較し、アラインメントを取る際の関連度${\rm Rel}(s, t)$の閾値を検討する。アラインメントの結果の評価は、precision-recall\ref{information}を尺度に行う。precisionとrecallは検索エンジンの性能評価などに用いられる評価尺度で、以下の式によって表される。
-\begin{align}
-  {\rm precision} &= \frac{R}{N}\\
-  {\rm recall} &= \frac{R}{C}
-\end{align}
-  ここで、$N$はアラインメントした結果webニュースの断片に対応づけられたtweetの数、$C$は正解データでwebニュースの断片に対応づけられるべきとされたtweetの数、$R$はアラインメントした結果webニュースの断片と対応づけられ、なおかつ正解とも一致したtweetの数である。これらの値を合わせたF-scoreで、アラインメントの評価を行う。F-scoreはprecisionとrecallの調和平均であり、以下の式によってあらわされる。
+\def\googlenews{Google\_news\_jp}
+\subsection{概要}
 
-\begin{align}
-  F &= \frac{2}{\frac{1}{\rm precision} + \frac{1}{\rm recall}} \\
-    &= \frac{2R}{N+C}
-\end{align}
+本研究では
+\begin{itemize}
+\item 実験A:tf-idfによる内容語の抽出
+\item 実験B:tweetとニュース断片の関連度の計算
+\item 実験C:tweetとニュース断片のアラインメント
+\end{itemize}
+の三つの実験を行った。
 
+実験Aでは、tf-idfによりインターネット上のニュース記事とtwitterの書き込みから内容語を抽出するシステムを構築し、その性能を評価した。
+内容語の抽出に関しては、サンプル記事と、その記事に言及しているtweetに現れている各単語についてtf-idfを計算し、ソートすることにより、内容語と判定する基準である閾値がどのような値になるのかを検討した。
+
+実験Bでは、ニュース記事とtweetの間の関連度を「一致する単語」、「言い換えの単語」、「類似の関係にある単語」を指標として計算し、人間の手によって評価された関連度と比較することでその性能を評価した。
+
+実験Cでは、実験Bで評価したニュース記事とtweetの関連度の計算手法をもとに、ニュース記事とtweetの間のアラインメントを安定結婚アルゴリズムにより計算した。
+このアラインメントの結果も、人間の手によって生成された関連度と比較することでその性能を評価した。
 
 \subsection{実験条件}
-今回の実験で使用するニュース記事は、Twitter上で"@Google\_news\_jp"\footnote{https://twitter.com/Google\_News\_jp}というアカウントによって取り上げられているニュースから無作為に抽出したものを使用する。"@Google\_news\_jp"は、様々な報道機関が提供しているインターネット上の記事のタイトル・URLを紹介しているアカウントである。今回の実験で使用するtweetは、収集したニュース記事のタイトル、URLをTwitterの公式検索ツールで検索した結果ヒットしたtweetをその記事に言及するtweetとみなし、使用する。ただし、"@Google\_news\_jp"のような単なるニュース紹介のアカウントのtweetは、個人の意見や感想を含まないために除外する。記事に言及するtweetは記事のタイトルやURLを内部に含む場合が多いので、その部分はtweetの本文から除外して分析をする。
 
-tf-idfにおいてidfを計算するためのデータセットとしては、"@Google\_news\_jp"のニュース記事から20記事を集めた物を使用する。また、"@Google\_news\_jp"のニュース記事から多くのtweetに言及されている記事を二つ\footnote{http://www.asahi.com/national/update/0825/TKY201308250154.html}\footnote{http://zasshi.news.yahoo.co.jp/article?a=20130830-00000003-sasahi-soci}を選び、内容語の抽出の評価や、アラインメントの評価に使用する。
+本研究ではサンプルとして、Twitter上のアカウント"@\googlenews "によって取り上げられているニュースを使用した。
+"@\googlenews" は、様々な報道機関が提供しているインターネット上の記事のタイトル・URLを紹介しているアカウントである。
+
+本研究では、収集したニュース記事のタイトルを本文中に含むtweetをその記事に言及するtweetとみなし使用する。ただし、"@Google\_news\_jp"のような単なるニュース紹介のアカウントのtweetは、個人の意見や感想を含まないために除外する。記事に言及するtweetは記事のタイトルやURLを内部に含む場合が多いので、その部分はtweetの本文から除外して分析をする。
+
+tf-idfにおいてidfを計算するためのデータセットとしては、"@Google\_news\_jp"のニュース記事から20記事を集めた物を使用する。
+
+また、ニュース断片とTweetの関連度の評価、ニュース断片とTweetのアラインメントの計算のためのニュース記事のサンプルは、2014年12月1日から2014
+年12月31日の間のニュースの中で、多くのTweetに言及されているものを10記事選択して取り扱った。本研究で取り扱ったニュース記事のタイトルを表\ref{news_table}に示す。
+
+\begin{table}
+\begin{center}
+\caption{本研究で取り扱ったニュース記事の一覧}
+\label{news_table}
+\begin{tabular}[t]{|l|}
+\hline
+救助中ヘリから落下、心肺停止の１人を翌日発見 \\ \hline
+石破氏なお秘密報道に疑問 「処罰対象ではないが…」 \\ \hline
+レーシック手術の被害情報5年で80件、目の痛みや矯正のしすぎ／消費者庁 \\ \hline
+秘密法案、与党が夜にも成立強行 会期２日延長、攻防は最終局面 \\ \hline
+人類最古のＤＮＡ抽出…４０万年前の人骨から \\ \hline
+「ふなっしー」酷似「きゃべっしー」に苦情殺到 \\ \hline
+甘利氏が治療でＴＰＰ会合欠席へ 早期の舌がん、一時辞意も慰留 \\ \hline
+自殺原因は過大なノルマ・罵声…日本郵便を提訴 \\ \hline
+軽自動車保有税上げ 平均数千円、15年10月までに \\ \hline
+米中会談は５時間半、防空圏「認めない」と副大統領、「日中ホットライン確立を」 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+また、15人の協力者に実験に参加してもらい、人手によるTweetとニュース断片の関連度の評価やTweetとニュース断片のアラインメントのサンプルの収集を行った。
+
+\def\kappac{$\kappa$係数}
+人手による関連度評価やアラインメントの結果は、\kappac\cite{kappa}により評価した。\kappac は、人手によるクラス分類の際の、個人ごとによるずれを評価する尺度である。\kappac は以下の式によって定義される。
+
+\begin{equation}
+\kappa = \frac{Pr(a) - Pr(e)}{1 - Pr(e)}
+\end{equation}
+
+% アラインメントの結果の評価は、precision-recall\ref{information}を尺度に行う。
+% precisionとrecallは検索エンジンの性能評価などに用いられる評価尺度で、以下の式によって表される。
+
+% \begin{align}
+%   {\rm precision} &= \frac{R}{N}\\
+%   {\rm recall} &= \frac{R}{C}
+% \end{align}
+%   ここで、$N$はアラインメントした結果webニュースの断片に対応づけられたtweetの数、$C$は正解データでwebニュースの断片に対応づけられるべきとされたtweetの数、$R$はアラインメントした結果webニュースの断片と対応づけられ、なおかつ正解とも一致したtweetの数である。これらの値を合わせたF-scoreで、アラインメントの評価を行う。F-scoreはprecisionとrecallの調和平均であり、以下の式によってあらわされる。
+
+% \begin{align}
+%   F &= \frac{2}{\frac{1}{\rm precision} + \frac{1}{\rm recall}} \\
+%     &= \frac{2R}{N+C}
+% \end{align}
 
 \subsection{実験結果}
 \subsubsection{内容語の抽出}
@@ -593,6 +647,7 @@ Pages 89-98
  \bibitem {wordnet-similarity}Ted Pedersen, Siddharth Patwardhan and Jason Michelizzi. WordNet::Similarity - Measuring the Relatedness of Concepts, HLT-NAACL--Demonstrations '04 Demonstration Papers at HLT-NAACL 2004 Pages 38-41
  \bibitem {smp} D.Gale and L.S.Shapley. COLLEGE ADMISSIONS AND THE STABILITY OF MARRIAGE (1962), The American Mathematical Monthly Vol. 69, pp. 9-15.
  \bibitem {psmp} 奥居 哲, 柴田 祥一, 岡田 稔, 川島 信. 安定結婚アルゴリズムに基づく卒業研究配属の事例研究. 社団法人情報処理学会 研究報告kennkyuuhoukoku 2003, pp. 67-72.
+ \bibitem {kappa} David M. W. Powers. The Problem with Kappa
 \end{thebibliography}
 \end{document}
 
