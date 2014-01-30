@@ -18,15 +18,5 @@
 \contentsline {section}{\numberline {3}実験}{15}
 \contentsline {subsection}{\numberline {3.1}概要}{15}
 \contentsline {subsection}{\numberline {3.2}実験条件}{15}
-\contentsline {subsection}{\numberline {3.3}実験結果}{16}
-\contentsline {subsubsection}{\numberline {3.3.1}内容語の抽出}{16}
-\contentsline {subsubsection}{\numberline {3.3.2}アラインメント}{16}
-\contentsline {section}{\numberline {4}考察}{18}
-\contentsline {subsection}{\numberline {4.1}内容語の抽出}{18}
-\contentsline {subsection}{\numberline {4.2}アラインメント}{18}
-\contentsline {section}{\numberline {5}今後の課題}{18}
-\contentsline {subsection}{\numberline {5.1}データ収集の自動化}{18}
-\contentsline {subsection}{\numberline {5.2}内容語の抽出}{19}
-\contentsline {subsection}{\numberline {5.3}言い換え語・類似語の検出}{19}
-\contentsline {subsection}{\numberline {5.4}ユーザー評価の実施}{19}
-\contentsline {section}{\numberline {6}結論}{19}
+\contentsline {subsubsection}{\numberline {3.2.1}実験サンプル}{15}
+\contentsline {subsubsection}{\numberline {3.2.2}$\kappa $評価尺度shakudo}{16}

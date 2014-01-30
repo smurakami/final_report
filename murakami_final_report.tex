@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{listings, jlisting}
+\usepackage{multirow}
 
 \setlength{\topmargin}{30mm}
 \addtolength{\topmargin}{-1in}
@@ -523,7 +524,7 @@ N人の女性もそれぞれ同様に、どの男性を好むかを順位付け�
 このアラインメントの結果も、人間の手によって生成された関連度と比較することでその性能を評価した。
 
 \subsection{実験条件}
-
+\subsubsection{実験サンプル}
 本研究ではサンプルとして、Twitter上のアカウント"@\googlenews "によって取り上げられているニュースを使用した。
 "@\googlenews" は、様々な報道機関が提供しているインターネット上の記事のタイトル・URLを紹介しているアカウントである。
 
@@ -556,12 +557,78 @@ tf-idfにおいてidfを計算するためのデータセットとしては、"@
 
 また、15人の協力者に実験に参加してもらい、人手によるTweetとニュース断片の関連度の評価やTweetとニュース断片のアラインメントのサンプルの収集を行った。
 
+\subsubsection{$\kappa$評価尺度shakudo}
 \def\kappac{$\kappa$係数}
-人手による関連度評価やアラインメントの結果は、\kappac\cite{kappa}により評価した。\kappac は、人手によるクラス分類の際の、個人ごとによるずれを評価する尺度である。\kappac は以下の式によって定義される。
+
+人手による関連度評価やアラインメントの結果は、\kappac\cite{kappa}により評価した。\kappac は、人手によるクラス分類の際の、個人ごとによるずれを評価する尺度である。二人の異なる分類者の間で、\kappac は以下の式によって定義される。
 
 \begin{equation}
 \kappa = \frac{Pr(a) - Pr(e)}{1 - Pr(e)}
 \end{equation}
+
+ここで、$Pr(a)$は実際に観測された一致率である。それに対して、$Pr(e)$は二人のクラス分類が偶然一致する確率である。
+上記のように定義することで、\kappac では、偶然の要素を除いた二者の一致度合いを測定することが出来る。
+
+\begin{table}
+\begin{center}
+\caption{二者によるクラス分類の例}
+\label{classifi_2}
+\begin{tabular}[t]{|c|c|c|c|}
+  \hline
+  \multirow{2}{*}{} & & \multicolumn{2}{|c|}{B} \\ \hline
+                           &  & Yes & No \\ \hline
+  \multirow{2}{*}{A} & Yes    & 20  &  5   \\ \cline{2-4}
+                     & No     & 10  & 15  \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+分類者Aと分類者Bによる、二値のクラス分類の例を表\ref{classifi_2}に示す。
+この例では、全体の一致率は
+\begin{equation}
+\frac{20 + 15}{20 + 5 + 10 + 15} = 0.7
+\end{equation}
+より、0.7である。
+一方、分類者AがYesに分類する確率$P_{A,yes}$, Noに分類する確率$P_{A,no}$, 分類者BがYesに分類する確率$P_{B, yes}$, Noに分類する確率$P_{B, no}$はそれぞれ以下のように求めることができる。
+
+\begin{eqnarray}
+P_{A,yes} = \frac{20 +  5}{20 + 5 + 10 + 15} = 0.5\\
+P_{A,no}  = \frac{10 + 15}{20 + 5 + 10 + 15} = 0.5\\
+P_{B,yes} = \frac{20 + 10}{20 + 5 + 10 + 15} = 0.6\\
+P_{B,no}  = \frac{ 5 + 15}{20 + 5 + 10 + 15} = 0.4
+\end{eqnarray}
+
+したがって、両方の分類者が「偶然」同時にyesに分類する確率は$P_{A,yes}*P_{B,yes}$, 両方の分類者が同時にnoに分類する確率は$P_{A,no}*P_{B,no}$で表すことができ、両者の分類結果が偶然一致する結果$Pr_{e}$は以下のように求まる。
+
+\begin{equation}
+Pr_{e} = P_{A,yes}*P_{B,yes} + P_{A,no}*P_{B,no} = 0.5
+\end{equation}
+
+以上より、この例に置ける分類者Aと分類者Bの間の\kappac は
+\begin{equation}
+\kappa = \frac{0.7 - 0.5}{1 - 0.5} = 0.4
+\end{equation}
+となる。
+
+一般に二人の分類者の一致度合いは、\kappac が0であれば一致なし(偶然と同程度の一致)、0から0.4の間であれば弱い一致、\kappac が0.4から0.6の間であればそこそこの一致、\kappac が0.6から0.8の間であれば良い一致、\kappac が0.8から1の間であれば非常に高い一致度であるとみなされる。
+
+多段階のクラス分類の場合、上記の定義の通りに\kappac を計算すると、クラス数が多くなるほど二者の分類結果が一致する確率が低くなってしまうので、\kappac を多段階クラス用に拡張した重み付け\kappac を使用する。重み付け\kappac では、$Pr(a)$は以下の式で求められる。.
+\begin{equation}
+Pr(a) = \frac{1}{N} \sum _{i=1} ^{k} \sum _{i=j} ^{k} w_{i,j} x_{i, j}
+\end{equation}
+
+ここで、$N$は全サンプル数、$k$はクラス数、$i, j$はクラスのID、$x_{i, j}$は片方の分類者がクラス$i$に分類し、もう片方の分類者がクラス$j$に分類したサンプルの総数である。
+$w_{i, j}$は、重み付け係数で、以下により定義される。
+
+\begin{equation}
+w_{i, j} = 1 - \frac{(i - j)^2}{(k-1)^2}
+\end{equation}
+
+これにより、両者のクラス分類が一致しなかった場合のクラス分類も、一致するクラスと近い場合は「惜しい例」として、重み付けをされた上で$Pr(a)$に加算される。
+なお、重み付け\kappac で$k=2$とした場合は重み付けをしなかった場合の\kappac と完全に一致する。
+
+
+本研究では、Twitter上の投稿とニュース断片の関連度の計算を4段階の多段階クラス分類、Twitter上の投稿とニュース断片のアラインメントを、結びつけるか結びつけないかの二値のクラス分類としてモデル化し、\kappac を適用することでその結果を評価する。
 
 % アラインメントの結果の評価は、precision-recall\ref{information}を尺度に行う。
 % precisionとrecallは検索エンジンの性能評価などに用いられる評価尺度で、以下の式によって表される。
