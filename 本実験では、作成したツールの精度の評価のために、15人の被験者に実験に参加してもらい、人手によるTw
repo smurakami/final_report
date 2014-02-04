@@ -1,0 +1,170 @@
+本実験では、作成したツールの精度の評価のために、15人の被験者に実験に参加してもらい、人手によるTweetとNews断片のアラインメントのサンプルの収集を行った。
+本研究では、以下の二つの実験を行った。
+\begin{itemize}
+  \item 実験I: 人手によるTweetとNews断片の関連度の評価
+  \item 実験II: 人手によるTweetのNews断片への結びつけ(アラインメント)
+\end{itemize}
+
+実験Iでは、最初に被験者に記事のタイトルと全文を提示する。
+その後、一つの記事の断片と10のTweetを被験者に見せ、それぞれのTweetが提示されているニュース断片とどのくらいの関連度があるのかを四段階で判定してもらった。
+関連度の程度に関しては、
+一段階目を「ほとんど関連していない」、
+二段階目を「あまり関連していない」、
+三段階目を「やや関連している」、
+四段階目を「強く関連している」とした。
+この判定をニュース中のすべてのニュース記事断片について行ってもらった。
+関連度の評価尺度はTweetとNews断片中に含まれる単語をもとに判断するようにあらかじめ指示しておいた。
+実験Iの実験インターフェースの概要を図\ref{annotation_by_human_A}に示す。
+
+\begin{figure}[t]
+  \begin{center}
+    \fbox{
+      \includegraphics[scale = 0.3]{image/annotation_by_human_A.eps}
+    }
+  \end{center}
+  \label{annotation_by_human_A}
+  \caption{実験Iのインターフェース}
+\end{figure}
+
+実験IIでも、最初に被験者に記事のタイトルと全文を提示する。
+その後、一つのTweetと、記事の断片すべてを見せ、提示したTweetがどの記事断片と結びつけるかをYESかNOかで応えてもらった。
+この判定をそのニュースに言及している40のTweetについて行ってもらった。
+結びつけの判定は実験Iと同じくTweetと記事断片中に含まれる単語をもとに判断するようにあらかじめ指示しておいた。
+また、一つのTweetが複数の記事断片と繋がるような場合も許容し、反対にどの記事断片とも結びつかないようなTweetが存在する場合も許容するようにした。
+一つのTweetが複数の記事断片と繋がり場合は、多くても2~3個の記事断片に留めるようにあらかじめ指示しておいた。
+これは、ほとんどの記事断片と繋がってしまうようなTweetが現れるのを事前に防ぐためである。
+
+実験IIの実験インターフェースの概要を図\ref{annotation_by_human_B}に示す。
+
+\begin{figure}[t]
+  \begin{center}
+    \fbox{
+      \includegraphics[scale = 0.3]{image/annotation_by_human_B.eps}
+    }
+  \end{center}
+  \label{annotation_by_human_B}
+  \caption{実験IIのインターフェース}
+\end{figure}
+
+\subsubsection{評価尺度}
+\def\kappac{$\kappa$係数}
+
+人手による関連度評価やアラインメントの結果は、\kappac\cite{kappa}により評価した。\kappac は、人手によるクラス分類の際の、個人ごとによるずれを評価する尺度である。二人の異なる分類者の間で、\kappac は以下の式によって定義される。
+
+\begin{equation}
+\kappa = \frac{Pr(a) - Pr(e)}{1 - Pr(e)}
+\end{equation}
+
+ここで、$Pr(a)$は実際に観測された一致率である。それに対して、$Pr(e)$は二人のクラス分類が偶然一致する確率である。
+上記のように定義することで、\kappac では、偶然の要素を除いた二者の一致度合いを測定することが出来る。
+
+\begin{table}
+\begin{center}
+\caption{二者によるクラス分類の例}
+\label{classifi_2}
+\begin{tabular}[t]{|c|c|c|c|}
+  \hline
+  \multirow{2}{*}{} & & \multicolumn{2}{|c|}{B} \\ \hline
+                           &  & Yes & No \\ \hline
+  \multirow{2}{*}{A} & Yes    & 20  &  5   \\ \cline{2-4}
+                     & No     & 10  & 15  \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+分類者Aと分類者Bによる、二値のクラス分類の例を表\ref{classifi_2}に示す。
+この例では、全体の一致率は
+\begin{equation}
+\frac{20 + 15}{20 + 5 + 10 + 15} = 0.7
+\end{equation}
+より、0.7である。
+一方、分類者AがYesに分類する確率$P_{A,yes}$, Noに分類する確率$P_{A,no}$, 分類者BがYesに分類する確率$P_{B, yes}$, Noに分類する確率$P_{B, no}$はそれぞれ以下のように求めることができる。
+
+\begin{eqnarray}
+P_{A,yes} = \frac{20 +  5}{20 + 5 + 10 + 15} = 0.5\\
+P_{A,no}  = \frac{10 + 15}{20 + 5 + 10 + 15} = 0.5\\
+P_{B,yes} = \frac{20 + 10}{20 + 5 + 10 + 15} = 0.6\\
+P_{B,no}  = \frac{ 5 + 15}{20 + 5 + 10 + 15} = 0.4
+\end{eqnarray}
+
+したがって、両方の分類者が「偶然」同時にyesに分類する確率は$P_{A,yes}*P_{B,yes}$, 両方の分類者が同時にnoに分類する確率は$P_{A,no}*P_{B,no}$で表すことができ、両者の分類結果が偶然一致する結果$Pr_{e}$は以下のように求まる。
+
+\begin{equation}
+Pr_{e} = P_{A,yes}*P_{B,yes} + P_{A,no}*P_{B,no} = 0.5
+\end{equation}
+
+以上より、この例に置ける分類者Aと分類者Bの間の\kappac は
+\begin{equation}
+\kappa = \frac{0.7 - 0.5}{1 - 0.5} = 0.4
+\end{equation}
+となる。
+
+\kappac の値の目安を表\ref{kappa_standard}に示す。一般に二人の分類者の一致度合いは、\kappac が0であれば一致なし(偶然と同程度の一致)、0から0.4の間であれば弱い一致(Poor)、\kappac が0.4から0.6の間であればそこそこの一致(Moderate)、\kappac が0.6から0.8の間であれば良い一致(Good)、\kappac が0.8から1の間であれば非常に高い一致度(Excellent)であるとみなされる。
+
+\begin{table}
+\begin{center}
+\caption{\kappac の目安}
+\label{kappa_standard}
+\begin{tabular}[t]{|c|c|}
+  \hline
+  \kappac & 評価 \\ \hline \hline
+  0.8 - 1.0 & Excellent \\ \hline
+  0.6 - 0.8 & Good \\ \hline
+  0.4 - 0.6 & Moderate \\ \hline
+  0.0 - 0.4 & Poor \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+多段階のクラス分類の場合、上記の定義の通りに\kappac を計算すると、クラス数が多くなるほど二者の分類結果が一致する確率が低くなってしまうので、\kappac を多段階クラス用に拡張した重み付け\kappac を使用する。重み付け\kappac では、$Pr(a)$は以下の式で求められる。
+\begin{equation}
+Pr(a) = \frac{1}{N} \sum _{i=1} ^{k} \sum _{i=j} ^{k} w_{i,j} x_{i, j}
+\end{equation}
+
+ここで、$N$は全サンプル数、$k$はクラス数、$i, j$はクラスのID、$x_{i, j}$は片方の分類者がクラス$i$に分類し、もう片方の分類者がクラス$j$に分類したサンプルの総数である。
+$w_{i, j}$は、重み付け係数で、以下により定義される。
+
+\begin{equation}
+w_{i, j} = 1 - \frac{(i - j)^2}{(k-1)^2}
+\end{equation}
+
+多段階のクラス分類の例を表\ref{classifi_4}に示す。
+この例では、A, Bの二人の分類者が与えられたサンプルをGrade1からGrade4の4段階のクラスに分類している。
+
+\begin{table}
+\begin{center}
+\caption{二者による多段階クラス分類の例}
+\label{classifi_4}
+\begin{tabular}[t]{|c|c|c|c|c|c|}
+  \hline
+  \multirow{2}{*}{} & & \multicolumn{4}{|c|}{B} \\ \hline
+                            &   & Grade 1 & Grade 2 & Grade 3 & Grade 4 \\ \hline
+  \multirow{4}{*}{A} & Grade 1  & 20 &  6 &  3 &  2   \\ \cline{2-6}
+                     & Grade 2  &  5 & 20 &  2 &  3   \\ \cline{2-6}
+                     & Grade 3  &  2 &  6 & 10 &  2   \\ \cline{2-6}
+                     & Grade 4  &  4 &  2 &  3 &  10   \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+重み付けをしない場合の多段階クラス分類では、$Pr(a) = 0.6, Pr(e) = 0.27$より \kappac は
+
+\begin{equation}
+  \kappa = \frac{0.6 - 0.27}{1 - 0.27} = 0.24
+\end{equation}
+
+となり、分類者Aと分類者Bの間の一致度はかなり低いと判定される。
+
+一方、重み付けをした場合の多段階クラス分類では、$Pr(a) = 0.89, Pr(e) = 0.27$より \kappac は
+
+\begin{equation}
+  \kappa = \frac{0.89 - 0.27}{1 - 0.27} = 0.51
+\end{equation}
+
+となり、分類者Aと分類者Bの間の一致度はそこそこ高いと判定される。
+
+このように、二人の分類者のクラス分類が一致しなかった場合も、一致するクラスと近い場合は「惜しい例」として、重み付けをされた上で$Pr(a)$に加算されるので、重み付け \kappac では多段階のクラス分類で \kappac が極端に低く見積もられる問題に対処することができる。
+なお、重み付け\kappac で$k=2$とした場合は重み付けをしなかった場合の\kappac と完全に一致する。
+
+
+本研究では、Twitter上の投稿とニュース断片の関連度の計算を4段階の多段階クラス分類、Twitter上の投稿とニュース断片のアラインメントを、結びつけるか結びつけないかの二値のクラス分類としてモデル化し、\kappac を適用することでその結果を評価する。
