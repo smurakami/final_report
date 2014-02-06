@@ -1,4 +1,4 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  4 FEB 2014 21:35
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2013.10.21)  6 FEB 2014 13:33
 **murakami_final_report.tex
 (./murakami_final_report.tex
 pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
@@ -224,7 +224,9 @@ Overfull \hbox (40.26065pt too wide) in paragraph at lines 108--109
  [] 
  []
 
-[2]
+[2
+
+]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 142.
 
  (/opt/local/share/texmf-dist/tex/latex/base/omscmr.fd
@@ -235,59 +237,66 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [3] [4] [5] [6]
 File: image/wordnet.eps Graphic file (type eps)
 
-<image/wordnet.eps> [7] [8] [9]
+<image/wordnet.eps> [7
+
+] [8] [9]
 File: image/match.eps Graphic file (type eps)
- <image/match.eps>
+ <image/match.eps> [10]
 
 LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
-(Font)              using `JT1/mc/m/n' instead on input line 364.
+(Font)              using `JT1/mc/m/n' instead on input line 365.
 
 
 LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
-(Font)              using `JY1/mc/m/n' instead on input line 364.
+(Font)              using `JY1/mc/m/n' instead on input line 365.
 
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 364.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 365.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 364.
-[10] [11]
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 365.
+[11] [12]
 File: image/psmp.eps Graphic file (type eps)
- <image/psmp.eps> [12] [13]
+ <image/psmp.eps> [13]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 497.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 497.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 498.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 498.
 
 
 (/opt/local/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 497.
- [14]
-Overfull \hbox (14.28606pt too wide) in paragraph at lines 544--560
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 498.
+ [14] [15]
+Overfull \hbox (11.05228pt too wide) in paragraph at lines 545--561
  [] 
  []
 
-[15]
 File: image/annotation_by_human_A.eps Graphic file (type eps)
- <image/annotation_by_human_A.eps>
+<image/annotation_by_human_A.eps> [16]
 File: image/annotation_by_human_B.eps Graphic file (type eps)
  <image/annotation_by_human_B.eps>
-[16] [17] [18] [19]
-Overfull \hbox (9.2722pt too wide) in paragraph at lines 771--772
-[]\JY1/mc/m/it/12 ここで 、 $\OML/cmm/m/it/12 c[]$ \JY1/mc/m/it/12 はニ ュ ース
-断片 $\OML/cmm/m/it/12 s$ \JY1/mc/m/it/12 にどれだけの \OT1/cmr/m/n/12 Tweet \J
-Y1/mc/m/it/12 が結びつくことができるかの容量 、 $[][]\OT1/cmr/m/n/12 (\OT1/cmr/
-bx/n/12 w\OT1/cmr/m/n/12 )$
+[17] [18] [19]
+Overfull \hbox (4.94954pt too wide) in paragraph at lines 772--773
+[]\JY1/mc/m/it/12 ここで\OT1/cmr/m/n/12 , $\OML/cmm/m/it/12 c[]$ \JY1/mc/m/it/1
+2 はニ ュ ース断片 $\OML/cmm/m/it/12 s$ \JY1/mc/m/it/12 にどれだけの \OT1/cmr/m
+/n/12 Tweet \JY1/mc/m/it/12 が結びつくことができるかの容量\OT1/cmr/m/n/12 , $[]
+[](\OT1/cmr/bx/n/12 w\OT1/cmr/m/n/12 )$
  []
 
 File: image/content_word.eps Graphic file (type eps)
 <image/content_word.eps> [20]
-Overfull \hbox (22.01445pt too wide) in paragraph at lines 801--813
+Overfull \hbox (17.64835pt too wide) in paragraph at lines 802--814
  [] 
  []
 
-[21] [22] [23] [24] [25] [26] [27] (./murakami_final_report.aux)
+[21] [22] [23] [24
+
+] [25] [26
+
+] [27
+
+] [28] (./murakami_final_report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 55.12pt have occurred.
@@ -302,10 +311,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2732 strings out of 94682
  36323 string characters out of 1177970
- 172568 words of memory out of 1500000
+ 199568 words of memory out of 1500000
  5996 multiletter control sequences out of 10000+50000
  20694 words of font info for 80 fonts, out of 1200000 for 2000
  566 hyphenation exceptions out of 8191
- 29i,9n,40p,978b,1778s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 29i,9n,40p,977b,1737s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on murakami_final_report.dvi (29 pages, 128844 bytes).
+Output written on murakami_final_report.dvi (30 pages, 128260 bytes).
