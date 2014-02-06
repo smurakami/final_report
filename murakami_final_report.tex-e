@@ -217,7 +217,7 @@ Twitter上においては、あるニュースに関する投稿をする際に�
 本研究では「言い換えの単語」の検出方法として、WordNet\footnote{http://nlpwww.nict.go.jp/wn-ja/}を利用する。WordNetは、英語の概念辞書である。WordNetでは、単語がsynsetという同義語のグループにまとめられている。よって、同一のsynsetに含まれる単語は言い換えの単語であると判断できる。WordNetには英語版の他にも、独立行政法人情報通信研究機構（NICT）によって日本語版の物が提供されている。また、Python等のプログラミング言語向けのフロントエンドも提供されており、プログラムから動的にデータ資源にアクセスすることが可能である。
 
 \subsubsection{互いに類似する語の検出}
-「互いに類似する単語」の検出にはいくつかの方法が考えられるが、本研究では言い換えの関係の語の検出と同じく、WordNetを利用して類似する単語の検出を行う。しかし、WordNetを用いた類似語の検出にはいくつかの問題点が存在するため、考えられる代替案としてLinの手法\cite{DekangLin}、Latent Spaceでのモデル化\cite{LatentSpace}、Co Clustering\cite{CoClustering}を後に紹介する。
+「互いに類似する単語」の検出にはいくつかの方法が考えられるが、本研究では言い換えの関係の語の検出と同じく、WordNetを利用して類似する単語の検出を行う。しかし、WordNetを用いた類似語の検出にはいくつかの問題点が存在するため、考えられる代替案としてDekang Linの手法\cite{DekangLin}、Latent Spaceでのモデル化\cite{LatentSpace}、Co Clustering\cite{CoClustering}を後に紹介する。
 
 \subsubsection{WordNetを用いた類似語の検出}
 WordNetでは同義語同士がSynsetというグループにまとめられているが、各々のSynsetは他のSynsetと繋がりを持っている。Synset同士の繋がりにはいくつかの種類がある。Synset同士の繋がりの種類は、単語の品詞によって異なる。以下に、名詞のSynsetにおけるSynset間の繋がりの例を示す。
@@ -250,12 +250,12 @@ Synsetのネットワークの例を図\ref{word_net}に示す。
 
 このようなネットワーク上では、意味の近い単語ほど短い経路でたどり着くことができ、意味の遠い単語ほどたどり着くのに長い経路を必要とすると考えることができる。このネットワーク上での距離を測定することで、Synset間の類似度を測定することが出来る\cite{wordnet-similarity}。本研究ではこの性質を利用して単語間の類似度を測定する。そして、類似度が一定の閾値以上の単語同士を互いに類似する単語として集計する。この類似度は実験により調整する。
 
-\subsubsection{Linの手法の利用}
+\subsubsection{Dekang Linの手法の利用}
 WordNetによる類似度の測定は効果的であるが、人手によって構築された意味辞書に依存しているという欠点がある。英語圏には既に完成度が高いWordNetが存在するが、それをもとに作られた日本語圏のWordNetはまだ語彙数が少ない。このように、WordNetを用いた類似語の検出は言語に依存してしまう。また、ソーシャルネットワーキングサービス上ではネットスラング等の辞書上に無い新しい語彙が用いられる場合もあり、その場合もWordNetでは対応することが出来ない。
 
 以上のような理由から、本研究のツールにおける類似語の検出には意味辞書に依存せずに、収集したテキストコーパスから学習できるような手法が望ましいと考えられる。
 
-このような「互いに類似する語」の検出方法として、Linの手法\cite{DekangLin}の利用が挙げられる。これは、単語同士がどれだけ「似ているのか」を計算するための手法である。Linの手法では、単語同士の類似度は以下の式で定義される。
+このような「互いに類似する語」の検出方法として、Dekang Linの手法\cite{DekangLin}の利用が挙げられる。これは、単語同士がどれだけ「似ているのか」を計算するための手法である。Dekang Linの手法では、単語同士の類似度は以下の式で定義される。
 
 \begin{equation}
   {\rm sim}(w_1, w_2) = \frac{\sum_{(r,w)\in T(w_1)\cap T(w_2)} (I(w_1, r, w) + I(w_2, r, w))}{\sum_{(r,w) \in T(w_1)}I(w_1, r, w) + \sum_{(r,w) \in T(w_2)}I(w_2, r, w)}
@@ -963,7 +963,7 @@ Tweetとニュース断片の関連度評価では、本研究で作成したツ
 
 \section{今後の課題}
 \subsection{WordNetに依存しない言い換え語・類似語の検出}
-今回の実験では「言い換えの関係にある語」、「互いに類似する語」の検出にWordNetを利用した。しかしながら、WordNetは世界で使用されている全ての言語で作成されているわけではなく、日本語版のWordNetも語彙がまだ少ないのが現状である。また、Twitter等のソーシャルネットワーキングサービスではネットスラングなどの新しい語彙が頻繁に誕生しているという現状もあり、これにもWordNetでは対応することができない。そこで、WordNetに依存せずに、機械学習的な手法で言い換え語・類似語の検出をすることが望ましいと考えられる。これを実現するための選好研究として、Linの手法\cite{DekangLin}、Latent Spaceでのモデル化\cite{LatentSpace}を挙げた。これらを実装し、結果を比較検討しながら二つの手法から選択及び組み合わせをして言い換え語・類似語の検出を実現することを、今後の課題とする。
+今回の実験では「言い換えの関係にある語」、「互いに類似する語」の検出にWordNetを利用した。しかしながら、WordNetは世界で使用されている全ての言語で作成されているわけではなく、日本語版のWordNetも語彙がまだ少ないのが現状である。また、Twitter等のソーシャルネットワーキングサービスではネットスラングなどの新しい語彙が頻繁に誕生しているという現状もあり、これにもWordNetでは対応することができない。そこで、WordNetに依存せずに、機械学習的な手法で言い換え語・類似語の検出をすることが望ましいと考えられる。これを実現するための選好研究として、Dekang Linの手法\cite{DekangLin}、Latent Spaceでのモデル化\cite{LatentSpace}を挙げた。これらを実装し、結果を比較検討しながら二つの手法から選択及び組み合わせをして言い換え語・類似語の検出を実現することを、今後の課題とする。
 
 
 \section{結論}
@@ -979,7 +979,7 @@ to be written
 \begin{thebibliography}{9}
   \bibitem {nlpml} 高村大地, 奥村学.言語処理のための機械学習入門(コロナ社), 2010
   \bibitem {tfidf} Gerard Salton. Introduction to Modern Information Retrieval (Mcgraw Hill, Inc.), 1986
-  \bibitem {DekangLin} Lin. Automatic Retrieval and Clustering of Similar Words. COLING '98 Proceedings of the 17th international conference on Computational linguistics - Volume 2 Pages 768-774
+  \bibitem {DekangLin} Dekang Lin. Automatic Retrieval and Clustering of Similar Words. COLING '98 Proceedings of the 17th international conference on Computational linguistics - Volume 2 Pages 768-774
   \bibitem {LatentSpace} Weiwei Guo, Mona Diab. Modeling Sentences in the Latent Space. ACL '12 Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics: Long Papers - Volume 1
 Pages 864-872
   \bibitem {CoClustering} Inderjit S Dhilon, Subramanyam Mallela, Dharmendra S. Modha. Information-Theoretic Co-clustering. KDD '03 Proceedings of the ninth ACM SIGKDD international conference on Knowledge discovery and data mining
